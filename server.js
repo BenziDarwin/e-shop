@@ -3,6 +3,10 @@ const mongoose = require("mongoose");
 
 const app = express();
 
+// Routes for API
+const items = require("./Routes/API/items");
+const categories = require("./Routes/API/category")
+
 //Middleware
 app.use(express.json());
 
@@ -15,6 +19,11 @@ mongoose.connect(db)
     console.log(err)
     process.exit(0)
 });
+
+
+//Use routes
+app.use('/items',items);
+app.use('/categories',categories)
 
 const port = process.env.PORT || 5000;
 
