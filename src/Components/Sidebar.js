@@ -43,7 +43,7 @@ const SidebarLeft = (props) => {
                     Health Care & Cosmetics
                 </ListGroup.Item>
                 <ListGroup.Item action>
-
+                    Others
                 </ListGroup.Item>
             </ListGroup>
         </div>

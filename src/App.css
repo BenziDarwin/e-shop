@@ -1,19 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300&display=swap');
+
+body {
+  font-family: var(--root-font);
+}
+
 :root {
-  --background-color: rgb(2, 216, 216);
-  --root-color: rgb(14, 168, 168);
-  --navbar-height: 5rem;
+  --root-color: rgb(2, 216, 216);
+  --background-color: rgb(14, 168, 168);
+  --navbar-height: 6rem;
+  --root-font: Roboto, san serif;
 }
 
 footer {
   width: 100%;
-  background-color: var(--root-color);
-  color: var(--background-color);
+  background-color: var(--background-color);
+  color: var(--root-color);
   text-align: center;
 }
 
 .navigationbar {
-  background-color: var(--root-color);
-  color: var(--background-color);
+  background-color: var(--background-color);
+  color: var(--root-color);
 }
 
 .expand {
@@ -36,12 +43,11 @@ footer {
 
 #brand {
   font-size: 3rem;
-  position: absolute;
-  top: 2%;
-  -webkit-transition: all 0.5s ease-out;
-  -moz-transition: all 0.5s ease-out;
-  -o-transition: all 0.5s ease-out;
-  transition: all 0.5s ease-out;
+  margin-bottom: 1rem;
+  -webkit-transition: all 0.7s ease-out;
+  -moz-transition: all 0.7s ease-out;
+  -o-transition: all 0.7s ease-out;
+  transition: all 0.7s ease-out;
 }
 
 #navbar {
@@ -49,18 +55,61 @@ footer {
 }
 
 #brand:hover {
-  letter-spacing: 5px;
-  font-size: 55px;
-  color: orangered;
+  letter-spacing: 3px;
+  color: rgba(103, 214, 214, 0.89);
 }
 
 #items {
-  position: fixed;
+  position: absolute;
   left: 20%;
 }
 
 .form {
-  position: fixed;
+  position: absolute;
   right: 180px;
+}
+
+button.list-group-item:hover{
+  color: white;
+  background-color: aqua;
+  transition: all 0.4s;
+}
+
+.links a{
+  color: rgb(10, 95, 95);
+  text-decoration: none;
+  transition: all 0.4s ease-out;
+}
+
+.links a:hover {
+  color: var(--root-color);
+}
+
+.shop-off {
+  position: absolute;
+  right: 12%;
   top: 3%;
+}
+
+#main-screen {
+  height: 120vh;
+}
+
+#navigationbar{
+  position: sticky;
+}
+
+.newitem {
+  margin-top: 8vh;
+}
+
+.img {
+  width: auto;
+  margin: auto;
+  height: 20vh;
+}
+
+.img-holder {
+  margin: auto;
+  align-content: center;
 }
