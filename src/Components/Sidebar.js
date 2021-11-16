@@ -1,27 +1,47 @@
-import React, {useState} from 'react'
-import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
+import axios from 'axios'
+import React, { useEffect } from 'react'
 import {ListGroup,ListGroupItem} from "react-bootstrap"
+import { useSelector, useDispatch } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { ActionCreators } from '../ActionMaker/Actions'
 
-const SidebarLeft = (props) => {
-  const [expand, setExpand] = useState("")
+const Sidebar = (props) => {
+    const groupData = useSelector((state) => state.group)
+    const categoryData = useSelector((state) => state.category)
+    const itemData = useSelector((state) => state.items)
+    const dispatch = useDispatch();
 
-  const expandHandler = () => {
-    if(expand === "expand") {
-      setExpand("")
+    const {setGroups,loadCategories,loadItems} = bindActionCreators(ActionCreators,dispatch);
+
+    useEffect(() => {
+        setGroups();
+        loadCategories();
+        loadItems();
+    },[groupData])
+
+    const Display = () => {
+        console.log(groupData)
     }
-    else{
-      setExpand("expand")
-    }
-    console.log(expand)
-  }
+
     return (
         <div>
               <ListGroup className="sidebar my-3 me-3 ms-2">
-                <ListGroup.Item action>
-                    Home & office
-                </ListGroup.Item>
-                <ListGroup.Item action>
+
+                  {groupData.groups && groupData.groups.map((group) => {
+                      if (group.group === "Home & Office") {
+                          return (
+                            <>
+                                <ListGroup.Item id={group._id} action onClick={() => Display(group._id)}>
+                                    Home & Office
+                                </ListGroup.Item>
+                                <div>
+                                    {}
+                                </div>
+                            </>
+                          )
+                      }
+                  })}
+                <ListGroup.Item onClick={() => Display()} action>
                   Scholastic materials
                 </ListGroup.Item>
                 <ListGroup.Item action>
@@ -50,16 +70,5 @@ const SidebarLeft = (props) => {
     )
 }
 
-SidebarLeft.propTypes = {
-    props: PropTypes
-}
 
-const mapStateToProps = (state) => ({
-
-})
-
-const mapDispatchToProps = {
-
-}
-
-export default SidebarLeft
+export default Sidebar

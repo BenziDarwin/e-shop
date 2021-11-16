@@ -27,7 +27,7 @@ const {setImage,removeImage} = bindActionCreators(ActionCreators, dispatch)
       <div className="container">
         <h1 className="heading">Add your image</h1>
         <div className="img-holder">
-          <img src={profileImg} alt="profile image" className="img" />
+          <img src={profileImg} alt="profile" className="img" />
         </div>
         <input type="file" name="image-uploader" id="input" accept="image/*" onChange={imgHandler}/>
       </div>
